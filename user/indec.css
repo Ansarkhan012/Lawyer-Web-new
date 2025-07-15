@@ -1,0 +1,177 @@
+
+        .hero-section {
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            background-color: #0f2027;
+            min-height: 100vh;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0 1rem;
+        }
+       
+          
+        .hero-section h1 {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        font-weight: 700 !important;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: 'Playfair Display', serif;
+        }
+    
+
+    .hero-section .lead {
+        font-weight: 400;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        font-family: 'Poppins', sans-serif;
+    }
+        
+
+        .hero-image-container {
+            background-color: rgba(31, 41, 55, 0.4);
+            border-radius: 1rem;
+            height: 24rem;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .hero-image {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .case-status-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border-left: 3px solid #b78a14;
+            max-width: 20rem;
+            width: 100%;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            position: absolute;
+            bottom: 1rem;
+            right: 2.5rem;
+            z-index: 30;
+        }
+
+        .counter {
+        transition: all 1s ease-out;
+        
+    }
+
+    .icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hover-effect {
+    transition: all 0.3s ease;
+    border-radius: 12px;
+  }
+  
+  .hover-effect:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+  }
+        
+
+  .attorney-img {
+        height: 280px;
+        object-fit: cover;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+    }
+    
+    .hover-effect {
+        transition: all 0.3s ease;
+        border-radius: 12px;
+    }
+    
+    .hover-effect:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+    }
+    .hover-effect {
+    transition: all 0.3s ease;
+    border-radius: 12px;
+  }
+  
+  .hover-effect:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1;
+    background: none;
+  }
+  
+  .carousel-control-prev {
+    left: -50px;
+  }
+  
+  .carousel-control-next {
+    right: -50px;
+  }
+
+  .form-floating label {
+    color: #6c757d;
+  }
+  
+  .form-control, .form-select {
+    border-radius: 8px;
+  }
+  
+  .form-control:focus, .form-select:focus {
+    border-color: #ffc107;
+    box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
+  }
+  
+  .card {
+    border-radius: 12px;
+  }
+  
+ 
+        
+
+
+        @media (max-width: 767.98px) {
+            .case-status-card {
+                position: relative;
+                bottom: auto;
+                right: auto;
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+            }
+            
+            .hero-section {
+                padding-top: 5rem;
+                padding-bottom: 5rem;
+            }
+            .carousel-control-prev {
+      left: -20px;
+    }
+    
+    .carousel-control-next {
+      right: -20px;
+    }
+        }
+ 
