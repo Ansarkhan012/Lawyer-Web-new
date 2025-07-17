@@ -1,0 +1,128 @@
+/* Reset some default styles */
+body, h1, h2, h3, p, ul, li, table {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Layout */
+body {
+    display: flex;
+    min-height: 100vh;
+    background: #f4f7fa;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    background-color:#c49300;
+    color: #ecf0f1;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    display: block;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: #34495e;
+}
+
+/* Main content */
+.main-content {
+    flex-grow: 1;
+    padding: 20px 40px;
+}
+
+header {
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-weight: 700;
+    font-size: 28px;
+    color: #34495e;
+}
+
+/* Stats boxes */
+.stats-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.stat-box {
+    background-color: #c49300;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+}
+
+.stat-box h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.stat-box p {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.stat-box:hover {
+    background-color: #ad8200;
+}
+
+/* Reports table */
+.reports h2 {
+    margin-bottom: 15px;
+    color: #34495e;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #967102;
+    color: white;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}

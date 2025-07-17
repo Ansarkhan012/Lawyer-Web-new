@@ -1,49 +1,36 @@
 <?php 
 require_once '../config/config.php';
-if (isset($_POST['login'])){
+if (isset($_POST['signup'])){
+    $username=mysqli_real_escape_string($conn,$_POST['name']);
     $email=mysqli_real_escape_string($conn,$_POST['email']);
     $password=mysqli_real_escape_string($conn,$_POST['password']);
 
     $checkuser="SELECT * FROM `users` WHERE email='$email'";
-	$checkuserresult=mysqli_query($conn,$checkuser);
+	$checkUserResult=mysqli_query($conn, $checkuser);
 
-    if (mysqli_num_rows($checkuserresult) ==1){
-    $row=mysqli_fetch_assoc($checkuserresult);
-    $verifyPassword=password_verify($password,$row["password"]);
-	if($verifyPassword){
-      session_start();
-      
-	  $_SESSION ['email']=$email;
-	  $_SESSION ['role'] =$row['role'];
-      $_SESSION ['isloggedin']=true;
-	  $_SESSION ['user_id']=$row['id'];
-	  
-	  ['user_id'];
-    if ($_SESSION['role']=="admin"){
-      echo"<script>alert('Login Successfully As Admin')
-	  location.href='../admin/index.php'</script>";
-	}else{
-		echo"<script>alert('Login Success')
-		location.href='./index.php'
-	</script>";
-	}
-	
+    if (mysqli_num_rows($checkUserResult) !=1){
+    $securepassword=password_hash($password,PASSWORD_BCRYPT);
+    
+    $query="INSERT INTO `users`( `name`, `email`, `password`) VALUES ('$username','$email','$securepassword')";
+    $result=mysqli_query($conn,$query);
+	if($result) {
+		echo"<script>alert('Signup Success')
+	location.href='./index.php'
+</script>";
 	} else {
-		echo"<script>alert('Incorrect Password')
+		echo"<script>alert('Failed To Register User')
 </script>";
 	}
 	
 		
 	} else {
-		echo"<script>alert('User Not Found')
-	location.href='./signup.php'
+		echo"<script>alert('User Already Exist')
+	location.href='./login.php'
 </script>";
 	}
 	
 }
-
 ?>
-
 
 <!doctype html>
 <html lang="en">
@@ -160,9 +147,21 @@ if (isset($_POST['login'])){
 <body>
   <div class="login-card shadow">
 	<svg fill=" #bfa14a" height="80px" width="80px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 511.994 511.994" xml:space="preserve" stroke=" #bfa14a" transform="rotate(-45)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="3.0719640000000004"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M343.936,239.982v45.372l-3.171,4.229c-5.49,7.319-6.358,16.95-2.266,25.133c4.091,8.184,12.317,13.267,21.466,13.267h96 c9.149,0,17.375-5.083,21.466-13.267c4.092-8.183,3.224-17.813-2.266-25.133l-3.2-4.268V146.663l3.2-4.267 c5.49-7.319,6.358-16.95,2.266-25.133c-4.091-8.184-12.317-13.267-21.466-13.267h-96c-9.149,0-17.375,5.083-21.466,13.267 c-4.092,8.183-3.224,17.813,2.266,25.133l3.171,4.229v45.357H213.829c-2.772-4.774-7.928-8-13.835-8H33.046 c-15.838,0-29.472,10.768-32.418,25.604c-1.888,9.507,0.53,19.223,6.633,26.657c6.125,7.461,15.14,11.739,24.733,11.739h168 c5.906,0,11.063-3.226,13.835-8H343.936z M352.809,124.419c1.385-2.769,4.06-4.422,7.155-4.422h96c3.096,0,5.771,1.653,7.155,4.422 c1.384,2.77,1.102,5.901-0.756,8.378l-2.4,3.2h-59.999c-4.418,0-8,3.582-8,8s3.582,8,8,8h55.999v127.985h-55.999 c-4.418,0-8,3.582-8,8s3.582,8,8,8h59.999l2.4,3.2c1.857,2.477,2.14,5.608,0.755,8.378c-1.385,2.769-4.06,4.422-7.155,4.422h-96 c-3.096,0-5.771-1.653-7.155-4.422c-1.384-2.77-1.102-5.901,0.756-8.378l2.4-3.2h11.973c4.418,0,8-3.582,8-8s-3.582-8-8-8h-8.002 V151.997h8.002c4.418,0,8-3.582,8-8s-3.582-8-8-8h-11.973l-2.4-3.2C351.707,130.32,351.425,127.188,352.809,124.419z M343.936,223.982H215.994v-16h127.942V223.982z M31.994,231.982c-4.786,0-9.293-2.147-12.367-5.892 c-3.097-3.772-4.271-8.527-3.306-13.388c1.44-7.252,8.63-12.721,16.725-12.721h166.948v32H31.994z"></path> <path d="M487.994,359.997h-160c-13.233,0-24,10.767-24,24v15c0,4.963,4.038,9,9,9h190c4.962,0,9-4.037,9-9v-15 C511.994,370.764,501.227,359.997,487.994,359.997z M495.994,391.997h-176v-8c0-4.411,3.589-8,8-8h160c4.411,0,8,3.589,8,8V391.997 z"></path> </g> </g></svg>
-    <h3 class="title">Login</h3>
+    <h3 class="title">Sign Up</h3>
     <form action="#" method="post" novalidate>
-      <div class="mb-4">
+	<div class="mb-4">
+        <label for="text" class="form-label">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="email"
+          name="name"
+          placeholder="Name"
+          required
+        />
+      </div>  
+	
+	<div class="mb-4">
         <label for="email" class="form-label">Email Address</label>
         <input
           type="email"
@@ -201,7 +200,7 @@ if (isset($_POST['login'])){
       <button type="submit" name="login" class="primary-btn">Sign In</button>
 
       <p class="signup-text">
-        Don't have an account? <a href="./signup.php">Sign Up</a>
+        Don't have an account? <a href="./login.php">Sign Up</a>
       </p>
     </form>
   </div>
@@ -217,6 +216,5 @@ if (isset($_POST['login'])){
   ></script>
 </body>
 </html>
-
+    
                    
-
