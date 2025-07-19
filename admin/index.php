@@ -33,11 +33,11 @@ require_once "../config/config.php";
       background: #f4f7fa;
   }
 
-  /* Sidebar */
+ 
   .sidebar {
       width: 220px;
-      background-color: #c49300;
-      color: #ecf0f1;
+      background-color: #0B5563;
+      color: #f8f9fa;
       padding: 20px;
       flex-shrink: 0;
       height: 100vh;
@@ -48,6 +48,7 @@ require_once "../config/config.php";
       margin-bottom: 30px;
       font-weight: 700;
       font-size: 24px;
+     
   }
 
   .sidebar ul {
@@ -72,13 +73,12 @@ require_once "../config/config.php";
       background-color: #34495e;
   }
 
-  /* Main content */
   .main-content {
       flex-grow: 1;
       padding: 20px 40px;
       overflow-y: auto;
       min-height: 100vh;
-      background: #f4f7fa;
+      background: #f8f9fa;
   }
 
   header {
@@ -91,7 +91,7 @@ require_once "../config/config.php";
       color: #34495e;
   }
 
-  /* Stats boxes */
+
   .stats-container {
       display: flex;
       gap: 20px;
@@ -99,7 +99,7 @@ require_once "../config/config.php";
   }
 
   .stat-box {
-      background-color: #c49300;
+      background-color: #0B5563;
       color: white;
       padding: 20px;
       border-radius: 8px;
@@ -123,7 +123,7 @@ require_once "../config/config.php";
       background-color: #ad8200;
   }
 
-  /* Reports table */
+  /
   .reports h2 {
       margin-bottom: 15px;
       color: #34495e;
@@ -148,7 +148,7 @@ require_once "../config/config.php";
   }
 
   th {
-      background-color: #967102;
+      background-color: #0B5563;
       color: white;
   }
 
@@ -179,7 +179,7 @@ require_once "../config/config.php";
 <body>
 
   <aside class="sidebar">
-    <h2>Lawyer Dashboard</h2>
+    <h2>Dashboard</h2>
     <ul>
       <li><a href="#">Home</a></li>
       <li><a href="#">Lawyers</a></li>

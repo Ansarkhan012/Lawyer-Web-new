@@ -59,7 +59,7 @@
             height: 2px;
             bottom: 0;
             left: 0;
-            background-color: #d4a017;
+            background-color: #0B5563;
             visibility: hidden;
             transition: all 0.3s ease-in-out;
         }
@@ -83,7 +83,7 @@
         }
         
         .contact-btn {
-            background-color: #d4a017;
+            background-color: #0B5563;
             color: white !important;
             border-radius: 6px;
             padding: 8px 20px !important;
@@ -91,7 +91,7 @@
         }
         
         .contact-btn:hover {
-            background-color: #b78a14;
+            background-color: #0B5563;
             transform: translateY(-2px);
         }
         

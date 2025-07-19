@@ -11,7 +11,7 @@
             <div class="row align-items-center">
                 <div class="col-md-6 order-md-1 order-2 text-white mt-5 mt-md-0">
                     <h1 class="display-4 fw-bold mb-4" data-aos="fade-right">
-                        Expert Legal <span class="text-warning">Counsel</span> When You Need It Most
+                        Expert Legal <span>Counsel</span> When You Need It Most
                     </h1>
                     <p class="lead text-light mb-5" data-aos="fade-right">
                         Our experienced attorneys provide comprehensive legal solutions with integrity and dedication, ensuring your rights are protected.
@@ -63,8 +63,8 @@
 <section id="about" class="py-5 py-lg-7 bg-light">
     <div class="container">
         <div class="row align-items-center">
-        <div class="text-center mb-5" data-aos="fade-up">
-      <span class="text-uppercase text-warning fw-bold small">About our Firm</span>
+        <div class="text-center mb-5 an" data-aos="fade-up">
+      <span class="text-uppercase text-custom fw-bold small">About our Firm</span>
       <h2 class="display-5 fw-bold mb-3">About</h2>
     
     </div>
@@ -76,7 +76,7 @@
                          class="img-fluid rounded-3 shadow">
                     
                     <
-                    <div class="position-absolute bottom-0 start-0 bg-warning text-dark p-3 rounded-end rounded-top shadow" 
+                    <div class="position-absolute bottom-0 start-0 bg-[#0B5563] text-dark p-3 rounded-end rounded-top shadow" 
                          style="transform: translateY(50%);">
                         <div class="d-flex align-items-center">
                             <div class="display-4 fw-bold me-3">5+</div>
@@ -94,7 +94,7 @@
                     <span class="text-uppercase text-warning fw-bold small" data-aos="fade-down"
      data-aos-easing="linear"
      data-aos-duration="1500">o</span>
-                    <h2 class="display-5 fw-bold mb-4" data-aos="fade-up">Committed to <span style="color:#ffc107;">Justice</span> and Client Success</h2>
+                    <h2 class="display-5 fw-bold mb-4" data-aos="fade-up">Committed to <span style="color:#0B5563;">Justice</span> and Client Success</h2>
                     
                     <p class="lead text-muted mb-4">
                         Founded in 1998, Justice Law Partners has established itself as a premier legal practice dedicated to protecting our clients' rights and achieving exceptional results.

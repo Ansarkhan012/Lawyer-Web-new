@@ -61,7 +61,7 @@ if (isset($_POST['login'])){
   />
   <style>
     body {
-      background: #1f2937; /* Dark slate gray */
+      background: #1f2937; 
       height: 100vh;
       display: flex;
       justify-content: center;
@@ -78,7 +78,7 @@ if (isset($_POST['login'])){
       box-shadow: 0 8px 20px rgba(31, 41, 55, 0.25);
       width: 100%;
       max-width: 420px;
-      border-top: 6px solid #bfa14a; /* gold accent */
+      border-top: 6px solid #bfa14a; 
     }
     .login-card .title {
       font-weight: 900;
