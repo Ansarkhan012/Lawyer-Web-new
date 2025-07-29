@@ -198,7 +198,7 @@ if (isset($_POST['login'])){
         </label>
       </div>
 
-      <button type="submit" name="login" class="primary-btn">Sign In</button>
+      <button type="submit" name="login" class="primary-btn">Login</button>
 
       <p class="signup-text">
         Don't have an account? <a href="./signup.php">Sign Up</a>

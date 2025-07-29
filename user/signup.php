@@ -15,7 +15,7 @@ if (isset($_POST['signup'])){
     $result=mysqli_query($conn,$query);
 	if($result) {
 		echo"<script>alert('Signup Success')
-	location.href='./index.php'
+	location.href='./login.php'
 </script>";
 	} else {
 		echo"<script>alert('Failed To Register User')
@@ -65,7 +65,7 @@ if (isset($_POST['signup'])){
       box-shadow: 0 8px 20px rgba(31, 41, 55, 0.25);
       width: 100%;
       max-width: 420px;
-      border-top: 6px solid #bfa14a; /* gold accent */
+      border-top: 6px solid #bfa14a; 
     }
     .login-card .title {
       font-weight: 900;
@@ -197,10 +197,10 @@ if (isset($_POST['signup'])){
         </label>
       </div>
 
-      <button type="submit" name="login" class="primary-btn">Sign In</button>
+      <button type="submit" name="signup" class="primary-btn">Sign Up</button>
 
       <p class="signup-text">
-        Don't have an account? <a href="./login.php">Sign Up</a>
+        Don't have an account? <a href="./login.php">Login</a>
       </p>
     </form>
   </div>

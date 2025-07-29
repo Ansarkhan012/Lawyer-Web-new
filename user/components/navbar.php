@@ -136,7 +136,7 @@
                         <a class="nav-link" href="./about.php">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./lawyer.php">Lawyer</a>
+                        <a class="nav-link" href="./lawyers.php">Lawyers</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./contact.php">Contact</a>

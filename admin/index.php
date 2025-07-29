@@ -1,187 +1,158 @@
-<?php 
-session_start();
-if(!isset($_SESSION["role"]) || $_SESSION["role"]!="admin"){
-  header("Location: ../user/login.php");
-}
-require_once "../config/config.php";
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Lawyer Dashboard</title>
-<style>
-  /* Global box-sizing */
-  *, *::before, *::after {
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lawyer Dashboard</title>
+  <style>
+    * {
       box-sizing: border-box;
-  }
-
-  /* Reset */
-  body, h1, h2, h3, p, ul, li, table {
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
-  }
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-  body {
+    body {
       display: flex;
-      flex-direction: row;
       min-height: 100vh;
-      background: #f4f7fa;
-  }
+      background-color: #f5f7fa;
+      color: #333;
+    }
 
- 
-  .sidebar {
+    .sidebar {
       width: 220px;
-      background-color: #0B5563;
-      color: #f8f9fa;
-      padding: 20px;
-      flex-shrink: 0;
-      height: 100vh;
-      overflow-y: auto;
-  }
+      background: #003B46;
+      color: #fff;
+      padding: 30px 20px;
+    }
 
-  .sidebar h2 {
+    .sidebar h2 {
+      font-size: 22px;
       margin-bottom: 30px;
-      font-weight: 700;
-      font-size: 24px;
-     
-  }
+    }
 
-  .sidebar ul {
+    .sidebar ul {
       list-style: none;
-  }
+    }
 
-  .sidebar ul li {
+    .sidebar ul li {
       margin-bottom: 15px;
-  }
+    }
 
-  .sidebar ul li a {
-      color: #ffffff;
+    .sidebar ul li a {
+      color: #fff;
       text-decoration: none;
-      font-weight: 600;
+      padding: 10px;
       display: block;
-      padding: 8px 12px;
-      border-radius: 4px;
-      transition: background 0.3s ease;
-  }
+      border-radius: 5px;
+      transition: background 0.2s ease;
+    }
 
-  .sidebar ul li a:hover {
-      background-color: #34495e;
-  }
+    .sidebar ul li a:hover {
+      background: #025e6a;
+    }
 
-  .main-content {
-      flex-grow: 1;
-      padding: 20px 40px;
-      overflow-y: auto;
-      min-height: 100vh;
-      background: #f8f9fa;
-  }
+    .main-content {
+      flex: 1;
+      padding: 40px;
+      background-color: #fff;
+    }
 
-  header {
-      margin-bottom: 30px;
-  }
-
-  header h1 {
-      font-weight: 700;
+    header h1 {
       font-size: 28px;
-      color: #34495e;
-  }
+      margin-bottom: 30px;
+      color: #003B46;
+    }
 
-
-  .stats-container {
+    .stats-container {
       display: flex;
       gap: 20px;
       margin-bottom: 40px;
-  }
+      flex-wrap: wrap;
+    }
 
-  .stat-box {
-      background-color: #0B5563;
-      color: white;
+    .stat-box {
+      flex: 1;
+      background: #007C91;
+      color: #fff;
       padding: 20px;
       border-radius: 8px;
-      flex: 1;
+      min-width: 200px;
       text-align: center;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-      transition: background-color 0.3s ease;
-  }
+      transition: background 0.3s;
+    }
 
-  .stat-box h3 {
-      font-size: 18px;
+    .stat-box:hover {
+      background: #00A6B4;
+    }
+
+    .stat-box h3 {
+      font-size: 16px;
       margin-bottom: 10px;
-  }
+    }
 
-  .stat-box p {
+    .stat-box p {
       font-size: 24px;
-      font-weight: 700;
-  }
+      font-weight: bold;
+    }
 
-  .stat-box:hover {
-      background-color: #ad8200;
-  }
+    .reports h2 {
+      margin-bottom: 20px;
+      color: #003B46;
+    }
 
-  /
-  .reports h2 {
-      margin-bottom: 15px;
-      color: #34495e;
-  }
+    .table-container {
+      overflow-x: auto;
+    }
 
-  .table-container {
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-      background-color: white;
-  }
-
-  table {
+    table {
       width: 100%;
       border-collapse: collapse;
-  }
+      border-radius: 8px;
+      overflow: hidden;
+    }
 
-  th, td {
-      padding: 12px 15px;
+    th, td {
+      padding: 14px;
       border-bottom: 1px solid #ddd;
       text-align: left;
-  }
+    }
 
-  th {
-      background-color: #0B5563;
-      color: white;
-  }
+    th {
+      background: #007C91;
+      color: #fff;
+    }
 
-  tr:hover {
-      background-color: #f1f1f1;
-  }
+    tr:hover {
+      background: #f0f0f0;
+    }
 
-  /* Responsive */
-  @media (max-width: 768px) {
+    @media (max-width: 768px) {
       body {
-          flex-direction: column;
+        flex-direction: column;
       }
+
       .sidebar {
-          width: 100%;
-          height: auto;
+        width: 100%;
+        height: auto;
       }
+
       .main-content {
-          padding: 20px;
-          min-height: auto;
+        padding: 20px;
       }
+
       .stats-container {
-          flex-direction: column;
-          gap: 15px;
+        flex-direction: column;
       }
-  }
-</style>
+    }
+  </style>
 </head>
 <body>
 
   <aside class="sidebar">
-    <h2>Dashboard</h2>
+    <h2>Admin Panel</h2>
     <ul>
-      <li><a href="#">Home</a></li>
+      <li><a href="#">Dashboard</a></li>
       <li><a href="#">Lawyers</a></li>
       <li><a href="#">Appointments</a></li>
       <li><a href="#">Cases</a></li>
@@ -206,7 +177,7 @@ require_once "../config/config.php";
         <p>8</p>
       </div>
       <div class="stat-box">
-        <h3>Clients</h3>
+        <h3>Total Clients</h3>
         <p>125</p>
       </div>
     </section>

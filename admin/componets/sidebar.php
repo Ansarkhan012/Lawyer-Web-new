@@ -1,73 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Admin Lawyer Sidebar</title>
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-   
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Role-Based Sidebar</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+    }
 
-  /* Sidebar container */
-  .sidebar {
-    width: 250px;
-    height: 100vh;
-   
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    border-right:2px solid gray;
-    box-sizing: border-box;
-  }
+    .sidebar {
+      width: 240px;
+      min-height: 100vh;
+      background-color: #003B46;
+      color: #fff;
+      padding: 25px 20px;
+      box-sizing: border-box;
+    }
 
-  /* Sidebar header */
-  .sidebar-header {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 40px;
-  }
+    .sidebar-header {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 35px;
+    }
 
-  /* Sidebar links */
-  .sidebar a {
-    text-decoration: none;
-    color: white;
-    padding: 12px 15px;
-    margin-bottom: 10px;
-    border-radius: 6px;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-  }
+    .sidebar a {
+      display: block;
+      text-decoration: none;
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
 
-  .sidebar a:hover {
-    background-color: #FFC107; /* Darker yellow on hover */
-    color: #000;
-  }
+    .sidebar a:hover {
+      background-color: #ffc107;
+      color: #000;
+    }
 
-  /* Main content area */
-  .content {
-    flex-grow: 1;
-    padding: 20px;
-  }
-</style>
+    .content {
+      flex-grow: 1;
+      padding: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 100%;
+        min-height: auto;
+      }
+    }
+  </style>
 </head>
 <body>
 
   <div class="sidebar">
-    <div class="sidebar-header">Admin Lawyer</div>
+    <div class="sidebar-header">
+      <?php echo ucfirst($role); ?> Panel
+    </div>
+
     <a href="#">Dashboard</a>
-    <a href="#">Clients</a>
-    <a href="#">Cases</a>
-    <a href="#">Lawyers</a>
-    <a href="#">Apoinments</a>
-    <a href="#">Settings</a>
+
+    <?php if ($role === "admin") : ?>
+      <a href="#">Clients</a>
+      <a href="#">Cases</a>
+      <a href="#">Lawyers</a>
+      <a href="#">New Lawyer Request</a>
+      <a href="#">Appointments</a>
+      <a href="#">Settings</a>
+    <?php elseif ($role === "lawyer") : ?>
+      <a href="#">My Cases</a>
+      <a href="#">My Appointments</a>
+      <a href="#">Client Messages</a>
+      <a href="#">Reports</a>
+    <?php endif; ?>
+
     <a href="#">Logout</a>
   </div>
-
-
 
 </body>
 </html>
