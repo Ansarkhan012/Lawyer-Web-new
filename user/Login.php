@@ -1,48 +1,51 @@
 <?php 
 require_once '../config/config.php';
-if (isset($_POST['login'])){
-    $email=mysqli_real_escape_string($conn,$_POST['email']);
-    $password=mysqli_real_escape_string($conn,$_POST['password']);
 
-    $checkuser="SELECT * FROM `users` WHERE email='$email'";
-	$checkuserresult=mysqli_query($conn,$checkuser);
+if (isset($_POST['login'])) {
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-    if (mysqli_num_rows($checkuserresult) ==1){
-    $row=mysqli_fetch_assoc($checkuserresult);
-    $verifyPassword=password_verify($password,$row["password"]);
-	if($verifyPassword){
-      session_start();
-      
-	  $_SESSION ['email']=$email;
-	  $_SESSION ['role'] =$row['role'];
-      $_SESSION ['isloggedin']=true;
-	  $_SESSION ['user_id']=$row['id'];
-	  
-	  ['user_id'];
-    if ($_SESSION['role']=="admin"){
-      echo"<script>alert('Login Successfully As Admin')
-	  location.href='../admin/index.php'</script>";
-	}else{
-		echo"<script>alert('Login Success')
-		location.href='./index.php'
-	</script>";
-	}
-	
-	} else {
-		echo"<script>alert('Incorrect Password')
-</script>";
-	}
-	
-		
-	} else {
-		echo"<script>alert('User Not Found')
-	location.href='./signup.php'
-</script>";
-	}
-	
+    $checkuser = "SELECT * FROM `users` WHERE email='$email'";
+    $checkuserresult = mysqli_query($conn, $checkuser);
+
+    if (mysqli_num_rows($checkuserresult) == 1) {
+        $row = mysqli_fetch_assoc($checkuserresult);
+        $verifyPassword = password_verify($password, $row["password"]);
+
+        if ($verifyPassword) {
+            session_start();
+            $_SESSION['email'] = $email;
+            $_SESSION['role'] = $row['role'];
+            $_SESSION['name'] = $row['name'];
+            $_SESSION['isloggedin'] = true;
+            $_SESSION['u_id'] = $row['u_id']; 
+
+
+            if ($_SESSION['role'] == "admin") {
+                echo "<script>
+                  alert('Login Successfully As Admin');
+                  window.location.href='../admin/index.php';
+                </script>";
+            } else {
+                echo "<script>
+                  alert('Login Success');
+                  window.location.href='./index.php';
+                </script>";
+            }
+
+        } else {
+            echo "<script>alert('Incorrect Password');</script>";
+        }
+
+    } else {
+        echo "<script>
+          alert('User Not Found');
+          window.location.href='./signup.php';
+        </script>";
+    }
 }
-
 ?>
+
 
 
 <!doctype html>

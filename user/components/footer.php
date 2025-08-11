@@ -52,11 +52,11 @@
         <ul class="list-unstyled small text-white-50">
           <li class="mb-2 d-flex">
             <i class="bi bi-geo-alt-fill me-2 text-warning"></i>
-            <span>123 Legal Avenue, Suite 500<br>New York, NY 10001</span>
+            <span>North Nazimabad<br>Karachi, Pakistan</span>
           </li>
           <li class="mb-2 d-flex">
             <i class="bi bi-telephone-fill me-2 text-warning"></i>
-            <span>(800) 555-1234</span>
+            <span>+92 313 8116796</span>
           </li>
           <li class="d-flex">
             <i class="bi bi-envelope-fill me-2 text-warning"></i>

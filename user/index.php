@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+
+
+?>
+
+
+
 <head>
     <link rel="stylesheet" href="indec.css">
 </head>
@@ -18,7 +27,7 @@
                     </p>
                     
                     <div class="d-flex flex-column flex-sm-row align-items-sm-center gap-3 mb-5">
-                        <button class="btn btn-outline-warning text-white fw-semibold py-3 px-4 rounded" data-aos="fade-right">
+                        <button style="background-color: #bfa14a; color:white;" class="btn btn-outline text-white fw-semibold py-3 px-4 rounded" data-aos="fade-right">
                             Schedule Consultation
                         </button>
                         <div class="d-flex align-items-center gap-2" data-aos="fade-right">
@@ -348,7 +357,7 @@
            
             <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
                 <div class="card h-100 border-0 shadow-sm hover-effect">
-                    <img src="https://storage.googleapis.com/support-forums-api/avatar/profile-301018160-8875161827002882613.jpg" 
+                    <img src="https://avatars.mds.yandex.net/i?id=f7bb68c0b8f986d678e55e4e790290e5be451a0e-5425095-images-thumbs&n=13" 
                          class="card-img-top attorney-img" 
                          alt="Sarah Johnson">
                     <div class="card-body text-center">
@@ -368,7 +377,7 @@
 
             <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
                 <div class="card h-100 border-0 shadow-sm hover-effect">
-                    <img src="https://storage.googleapis.com/support-forums-api/avatar/profile-301018160-8875161827002882613.jpg" 
+                    <img src="https://avatars.mds.yandex.net/i?id=d9b2a0b864f9d65322265c07dd2a56df213ed742-8306751-images-thumbs&n=13" 
                          class="card-img-top attorney-img" 
                          alt="Michael Chen">
                     <div class="card-body text-center">
@@ -389,7 +398,7 @@
       
             <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
                 <div class="card h-100 border-0 shadow-sm hover-effect">
-                    <img src="https://storage.googleapis.com/support-forums-api/avatar/profile-301018160-8875161827002882613.jpg" 
+                    <img src="https://avatars.mds.yandex.net/i?id=ef9ccc0276a8829b342b65edf10fea2cb228aff6-4034313-images-thumbs&n=13" 
                          class="card-img-top attorney-img" 
                          alt="David Rodriguez">
                     <div class="card-body text-center">
@@ -409,7 +418,7 @@
 
             <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
                 <div class="card h-100 border-0 shadow-sm hover-effect">
-                    <img src="https://storage.googleapis.com/support-forums-api/avatar/profile-301018160-8875161827002882613.jpg" 
+                    <img src="https://avatars.mds.yandex.net/i?id=c178e0c126aa4fb94142195132f4c12aeddaf23e-7555069-images-thumbs&n=13" 
                          class="card-img-top attorney-img" 
                          alt="Emily Wilson">
                     <div class="card-body text-center">
@@ -853,13 +862,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function startCounters() {
         const counters = document.querySelectorAll('.counter');
-        
-        // Different durations for different counters (in milliseconds)
+    
         const durations = {
-            "Cases Won": 3000,       // 3 seconds
-            "Client Satisfaction": 2500, // 2.5 seconds
-            "Expert Attorneys": 2000, // 2 seconds
-            "Availability": 1500      // 1.5 seconds
+            "Cases Won": 3000,       
+            "Client Satisfaction": 2500, 
+            "Expert Attorneys": 2000, 
+            "Availability": 1500     
         };
 
         counters.forEach(counter => {

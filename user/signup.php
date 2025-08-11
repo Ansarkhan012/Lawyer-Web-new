@@ -1,36 +1,40 @@
 <?php 
 require_once '../config/config.php';
-if (isset($_POST['signup'])){
-    $username=mysqli_real_escape_string($conn,$_POST['name']);
-    $email=mysqli_real_escape_string($conn,$_POST['email']);
-    $password=mysqli_real_escape_string($conn,$_POST['password']);
 
-    $checkuser="SELECT * FROM `users` WHERE email='$email'";
-	$checkUserResult=mysqli_query($conn, $checkuser);
+if (isset($_POST['signup'])) {
 
-    if (mysqli_num_rows($checkUserResult) !=1){
-    $securepassword=password_hash($password,PASSWORD_BCRYPT);
-    
-    $query="INSERT INTO `users`( `name`, `email`, `password`) VALUES ('$username','$email','$securepassword')";
-    $result=mysqli_query($conn,$query);
-	if($result) {
-		echo"<script>alert('Signup Success')
-	location.href='./login.php'
-</script>";
-	} else {
-		echo"<script>alert('Failed To Register User')
-</script>";
-	}
-	
-		
-	} else {
-		echo"<script>alert('User Already Exist')
-	location.href='./login.php'
-</script>";
-	}
-	
+    $username = mysqli_real_escape_string($conn, trim($_POST['name']));
+    $email = mysqli_real_escape_string($conn, trim($_POST['email']));
+    $password = mysqli_real_escape_string($conn, trim($_POST['password']));
+
+
+    if (empty($username) || empty($email) || empty($password)) {
+        echo "<script>alert('All fields are required!'); window.location.href = './signup.php';</script>";
+        exit;
+    }
+
+
+    $checkUser = "SELECT * FROM `users` WHERE email = '$email'";
+    $checkUserResult = mysqli_query($conn, $checkUser);
+
+    if (mysqli_num_rows($checkUserResult) == 0) {
+   
+        $securePassword = password_hash($password, PASSWORD_BCRYPT);
+
+        $query = "INSERT INTO `users` (`name`, `email`, `password`) VALUES ('$username', '$email', '$securePassword')";
+        $result = mysqli_query($conn, $query);
+
+        if ($result) {
+            echo "<script>alert('Signup Success'); window.location.href = './login.php';</script>";
+        } else {
+            echo "<script>alert('Failed to register user');</script>";
+        }
+    } else {
+        echo "<script>alert('User already exists'); window.location.href = './login.php';</script>";
+    }
 }
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -48,14 +52,14 @@ if (isset($_POST['signup'])){
   />
   <style>
     body {
-      background: #1f2937; /* Dark slate gray */
+      background: #1f2937; 
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: 'Georgia', serif;
+      font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
       color: #f8f9fa;
-      margin: 0;
+   
     }
     .login-card {
       background: #ffffff;
@@ -66,6 +70,7 @@ if (isset($_POST['signup'])){
       width: 100%;
       max-width: 420px;
       border-top: 6px solid #bfa14a; 
+      margin: 40px 0;
     }
     .login-card .title {
       font-weight: 900;

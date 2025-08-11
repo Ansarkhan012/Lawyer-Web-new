@@ -1,12 +1,4 @@
-<?php 
-session_start();
-if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-    header('Location: ../user/login.php');
-    exit();
-}
-$role = $_SESSION['role'];
-$name = $_SESSION['name'];
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +14,6 @@ $name = $_SESSION['name'];
       background-color: #f3f4f6;
     }
 
-    
     .sidebar {
       position: fixed;
       width: 20%;
@@ -80,38 +71,19 @@ $name = $_SESSION['name'];
 
   <div class="sidebar">
     <div class="sidebar-header">
-      <?php echo ucfirst($role); ?> Panel
+      Lawyer Panel
     </div>
 
     <a href="index.php">Dashboard</a>
-
-    <?php if ($role === "admin"): ?>
-      <a href="clients.php">Clients</a>
-      <a href="lawyers.php">Lawyers</a>
-      <a href="new_lawyer.php">New Lawyer Request</a>
-      <a href="appointments.php">Appointments</a>
-      <a href="settings.php">Settings</a>
-    <?php elseif ($role === "lawyer"): ?>
-      <a href="my_cases.php">My Cases</a>
-      <a href="appointments.php">My Appointments</a>
-      <a href="messages.php">Client Messages</a>
+      <a href="myCases.php">My Cases</a>
+      <a href="laywer_appointment.php">My Appointments</a>
+  
       <a href="reports.php">Reports</a>
-    <?php endif; ?>
 
-    <a onclick="confirmLogout()">Logout</a>
+    <a href="./logout.php">Logout</a>
   </div>
 
-  
+
 
 </body>
-
-<script>
-
-function confirmLogout() {
-    const confirmed = confirm("Are you sure you want to logout?");
-    if (confirmed) {
-      window.location.href = "./logout.php";
-    }
-  }
-</script>
 </html>
